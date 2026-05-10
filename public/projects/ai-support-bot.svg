@@ -1,0 +1,60 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1220"/>
+      <stop offset="1" stop-color="#101A2E"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="220" y1="160" x2="1220" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <filter id="glow" x="0" y="0" width="1600" height="1000" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="80" result="blur"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+
+  <g filter="url(#glow)" opacity="0.35">
+    <circle cx="360" cy="220" r="170" fill="#22D3EE"/>
+    <circle cx="1320" cy="780" r="200" fill="#34D399"/>
+  </g>
+
+  <rect x="120" y="110" width="1360" height="780" rx="34" fill="url(#card)" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+
+  <rect x="170" y="170" width="420" height="660" rx="24" fill="#0B1220" stroke="rgba(255,255,255,0.08)"/>
+  <text x="210" y="235" fill="#E2E8F0" font-family="Roboto Mono, monospace" font-size="34" font-weight="700">Knowledge Base</text>
+
+  <rect x="210" y="280" width="340" height="62" rx="14" fill="#111C33"/>
+  <text x="236" y="320" fill="#B7C7E3" font-family="Roboto Mono, monospace" font-size="26">API Docs</text>
+  <rect x="210" y="360" width="340" height="62" rx="14" fill="#111C33"/>
+  <text x="236" y="400" fill="#B7C7E3" font-family="Roboto Mono, monospace" font-size="26">SDK Guide</text>
+  <rect x="210" y="440" width="340" height="62" rx="14" fill="#111C33"/>
+  <text x="236" y="480" fill="#B7C7E3" font-family="Roboto Mono, monospace" font-size="26">Runbooks</text>
+  <rect x="210" y="520" width="340" height="62" rx="14" fill="#111C33"/>
+  <text x="236" y="560" fill="#B7C7E3" font-family="Roboto Mono, monospace" font-size="26">FAQ</text>
+
+  <rect x="650" y="170" width="780" height="660" rx="24" fill="#0B1220" stroke="rgba(255,255,255,0.08)"/>
+  <text x="700" y="235" fill="#F8FAFC" font-family="Roboto Mono, monospace" font-size="40" font-weight="700">AI Documentation Bot</text>
+
+  <rect x="700" y="278" width="430" height="90" rx="16" fill="#102035"/>
+  <text x="730" y="334" fill="#D6E5FF" font-family="Roboto Mono, monospace" font-size="24">How do I refresh auth tokens?</text>
+
+  <rect x="860" y="392" width="520" height="230" rx="16" fill="rgba(34,211,238,0.1)" stroke="url(#accent)" stroke-width="2"/>
+  <text x="890" y="440" fill="#E6FFF9" font-family="Roboto Mono, monospace" font-size="23">Use /auth/refresh endpoint and rotate</text>
+  <text x="890" y="478" fill="#E6FFF9" font-family="Roboto Mono, monospace" font-size="23">the refresh token every 24h. Persist</text>
+  <text x="890" y="516" fill="#E6FFF9" font-family="Roboto Mono, monospace" font-size="23">session state in Supabase and verify</text>
+  <text x="890" y="554" fill="#E6FFF9" font-family="Roboto Mono, monospace" font-size="23">claims with middleware before routing.</text>
+
+  <rect x="700" y="660" width="680" height="126" rx="16" fill="#101A2F"/>
+  <text x="734" y="708" fill="#8AA4D1" font-family="Roboto Mono, monospace" font-size="22">React • Supabase • pgvector • AWS Amplify • Cohere</text>
+  <text x="734" y="748" fill="#8AA4D1" font-family="Roboto Mono, monospace" font-size="22">System Prompt + Embedding Search for docs support</text>
+
+  <circle cx="786" cy="482" r="10" fill="#22D3EE"/>
+  <circle cx="786" cy="522" r="10" fill="#34D399"/>
+  <circle cx="786" cy="562" r="10" fill="#60A5FA"/>
+</svg>
