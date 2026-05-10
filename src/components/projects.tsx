@@ -5,8 +5,22 @@ import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import Image from "next/image";
 import { PROJECTS } from "@/data/projects";
+import { useLanguage } from "@/components/language-provider";
+
+const projectDescriptionsEs: Record<string, string> = {
+	Panda:
+		"Panda es una billetera electronica de GMoney S.A. en Peru que simplifica la gestion del dinero de forma segura. Permite recargar saldo, retirar efectivo, transferir a otros usuarios, pagar servicios y revisar balances en cualquier momento.",
+	Kaixo:
+		"Talk to the world es una plataforma de mensajeria instantanea que traduce automaticamente los mensajes al idioma elegido por cada usuario. Facilita conversaciones grupales, envio de archivos y guardado del historial en el idioma de cada persona.",
+	"AI Support Bot":
+		"Construi un bot de soporte con IA para documentacion usando React y Supabase, con pgvector para recuperacion semantica. Lo desplegue en AWS Amplify y lo potencie con Cohere para mejorar la traduccion de contexto y la calidad de respuestas.",
+	"Gestor de Tareas":
+		"Esta app de gestion de tareas ayuda a organizarse y mejorar la productividad al crear, editar, completar y eliminar tareas. Incluye vistas por categorias como Todas, Completadas y Pendientes para enfocarse en prioridades.",
+};
 
 export default function ProjectsCarousel() {
+	const { language } = useLanguage();
+
 	const autoScrollRef = useRef(
 		AutoScroll({
 			speed: 0.8,
@@ -57,12 +71,13 @@ export default function ProjectsCarousel() {
 	return (
 		<section id="projects" className="scroll-mt-24 py-16 flex flex-col items-center text-center">
 			<h2 className="mb-10 text-center text-5xl font-extrabold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-				Projects
+				{language === "en" ? "Projects" : "Proyectos"}
 			</h2>
 			<div className="mb-10 max-w-2xl">
 				<p className="text-lg font-mono text-white sm:text-xl">
-					I build production-ready software products with focus on maintainability, clean architecture, and fast iteration.
-					 These projects reflect real execution across product, engineering, and delivery.
+					{language === "en"
+						? "I build production-ready software products with focus on maintainability, clean architecture, and fast iteration. These projects reflect real execution across product, engineering, and delivery."
+						: "Construyo productos de software listos para produccion, con enfoque en mantenibilidad, arquitectura limpia e iteracion rapida. Estos proyectos reflejan ejecucion real en producto, ingenieria y entrega."}
 				</p>
 			</div>
 
@@ -118,7 +133,9 @@ export default function ProjectsCarousel() {
 
 											<div className="relative z-0 px-6 pb-8 pt-6 lg:px-8">
 												<h3 className="text-3xl font-extrabold tracking-tight text-white">{p.name}</h3>
-												<p className="mt-3 text-[15px] leading-7 text-white/75">{p.description}</p>
+												<p className="mt-3 text-[15px] leading-7 text-white/75">
+													{language === "en" ? p.description : (projectDescriptionsEs[p.name] ?? p.description)}
+												</p>
 												<div className="mt-5 flex flex-wrap gap-2">
 													{p.link ? (
 														<a
@@ -127,7 +144,7 @@ export default function ProjectsCarousel() {
 															rel="noreferrer"
 															className="rounded-md border border-cyan-300/40 bg-cyan-400/10 px-3 py-1 text-xs font-medium text-cyan-200"
 														>
-															Live project
+															{language === "en" ? "Live project" : "Proyecto en vivo"}
 														</a>
 													) : null}
 													{p.repo ? (
@@ -137,7 +154,7 @@ export default function ProjectsCarousel() {
 															rel="noreferrer"
 															className="rounded-md border border-white/25 bg-white/5 px-3 py-1 text-xs font-medium text-white/90"
 														>
-															Repository
+															{language === "en" ? "Repository" : "Repositorio"}
 														</a>
 													) : null}
 												</div>

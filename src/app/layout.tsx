@@ -1,6 +1,7 @@
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { LanguageProvider } from "@/components/language-provider";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -38,16 +39,18 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="es" suppressHydrationWarning>
-      <body id="top" className="min-h-screen bg-background text-foreground antialiased">
-        <a href="#main-content" className="skip-link">
-          Saltar al contenido principal
-        </a>
-        <Header />
-        <main id="main-content">{children}</main>
-        <Footer />
-      </body>
-    </html>
-  );
+	return (
+		<html lang="es" suppressHydrationWarning>
+			<body id="top" className="min-h-screen bg-background text-foreground antialiased">
+				<LanguageProvider>
+					<a href="#main-content" className="skip-link">
+						Saltar al contenido principal
+					</a>
+					<Header />
+					<main id="main-content">{children}</main>
+					<Footer />
+				</LanguageProvider>
+			</body>
+		</html>
+	);
 }

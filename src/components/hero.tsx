@@ -1,7 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/components/language-provider";
 
 export default function Hero() {
+	const { language } = useLanguage();
+
 	return (
 		<section className="py-16">
 			<div className="mx-auto max-w-6xl px-4">
@@ -10,7 +15,7 @@ export default function Hero() {
 						<Image src="/projects/LEO.png" alt="Leonardo" fill className="object-cover" priority />
 					</div>
 					<h1 className="mt-10 bg-gradient-to-r from-cyan-400 to-green-400 bg-clip-text text-4xl font-extrabold text-transparent sm:text-6xl">
-						Hello, I&apos;m{" "}
+						{language === "en" ? "Hello, I'm " : "Hola, soy "}
 						<span className="bg-gradient-to-r from-cyan-400 to-green-400 bg-clip-text text-transparent">
 							Leonardo
 						</span>
@@ -20,16 +25,12 @@ export default function Hero() {
 						Software Developer • Mobile, Web, Backend & AI • Lima, Perú
 					</p>
 					<p className="mt-4 max-w-3xl text-base text-white/80 sm:text-lg">
-						I build reliable software products end-to-end, from user-facing apps to backend systems and
-						documentation-aware AI assistants.
+						{language === "en"
+							? "I build reliable software products end-to-end, from user-facing apps to backend systems and documentation-aware AI assistants."
+							: "Construyo productos de software robustos de punta a punta, desde apps para usuarios hasta sistemas backend y asistentes de IA para documentación."}
 					</p>
 
 					<div className="mt-6 flex gap-3">
-						<a href="/cv.pdf" download="Leonardo_Palacios_CV.pdf">
-							<Button variant="outline" className="border-white/25 text-white hover:bg-white/10">
-								Download CV
-							</Button>
-						</a>
 						<a href="#contact">
 							<Button
 								className="
@@ -40,7 +41,7 @@ export default function Hero() {
 								[background-size:300%_300%]
 								animate-gradient-x"
 							>
-								Let&apos;s talk
+								{language === "en" ? "Let's talk" : "Hablemos"}
 							</Button>
 						</a>
 					</div>

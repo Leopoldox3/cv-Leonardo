@@ -1,14 +1,19 @@
+"use client";
+
 import { STACK } from "@/data/stack";
 import Image from "next/image";
+import { useLanguage } from "@/components/language-provider";
 
 export default function Stack() {
+	const { language } = useLanguage();
+
 	return (
 		<section
 			id="stack"
 			className="scroll-mt-24 py-16 flex flex-col items-center text-center"
 		>
 			<h2 className="text-5xl mt-10 font-extrabold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-4">
-				What I do
+				{language === "en" ? "What I do" : "Lo que hago"}
 			</h2>
 
 			<div className="mt-8 grid w-full max-w-5xl gap-4 md:grid-cols-2">

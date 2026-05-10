@@ -1,23 +1,28 @@
+"use client";
+
 import Rocket from "./rocket";
 import Image from "next/image";
+import { useLanguage } from "@/components/language-provider";
 
 export default function CtaBanner() {
+	const { language } = useLanguage();
+
 	return (
 		<section id="contact" className="relative overflow-hidden py-20 sm:py-24">
 			<div className="mx-auto flex flex-col max-w-6xl px-4 sm:px-6 lg:px-8 items-center">
 				<Rocket />
 
 				<h2 className="text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-6xl text-white text-center">
-					<span className="bg-black/55 px-3 pb-1 rounded-md">Have a</span>{" "}
+					<span className="bg-black/55 px-3 pb-1 rounded-md">{language === "en" ? "Have a" : "Tienes un"}</span>{" "}
 					<span className="bg-black/55 px-3 pb-1 rounded-md">
 						<span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
-							project
+							{language === "en" ? "project" : "proyecto"}
 						</span>{" "}
-						in mind?
+						{language === "en" ? "in mind?" : "en mente?"}
 					</span>
 					<br />
 					<span className="relative mt-3 inline-block bg-black/55 px-3 pb-1 rounded-md">
-						{"let's talk!"}
+						{language === "en" ? "let's talk!" : "hablemos!"}
 						<span className="absolute -bottom-1 left-2 right-2 h-1 rounded bg-gradient-to-r from-cyan-400 to-emerald-400" />
 					</span>
 				</h2>
@@ -26,7 +31,7 @@ export default function CtaBanner() {
 						<span className="font-semibold">leonardopalacios.dev</span>
 						<span className="h-4 w-px bg-white/30" />
 						<a href="#top" className="underline decoration-emerald-400 underline-offset-4">
-							back to top
+							{language === "en" ? "back to top" : "volver arriba"}
 						</a>
 					</div>
 				</div>
